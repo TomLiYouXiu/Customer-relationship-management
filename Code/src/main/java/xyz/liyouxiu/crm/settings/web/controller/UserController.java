@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import xyz.liyouxiu.crm.commons.contants.Contants;
 import xyz.liyouxiu.crm.commons.domain.ReturnObject;
+import xyz.liyouxiu.crm.commons.utils.DateUtils;
 import xyz.liyouxiu.crm.settings.domian.User;
 import xyz.liyouxiu.crm.settings.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -34,7 +37,7 @@ public class UserController {
     }
 
     @RequestMapping("/settings/qx/user/login.do")
-    public @ResponseBody Object login(String loginAct, String loginPwd, String isRemPwd, HttpServletRequest request){
+    public @ResponseBody Object login(String loginAct, String loginPwd, String isRemPwd, HttpServletRequest request, HttpSession session){
         //封装参数
         Map<String,Object> map=new HashMap<>();
         map.put("loginAct",loginAct);
@@ -46,28 +49,28 @@ public class UserController {
         ReturnObject returnObject=new ReturnObject();
         if(user==null){
             //登录失败,用户名或者密码错误
-            returnObject.setCode("0");
+            returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
             returnObject.setMessage("用户名或者密码错误");
         }else{//进一步判断账号是否合法
             //user.getExpireTime()   //2019-10-20
             //        new Date()     //2020-09-10
-            SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String nowStr=sdf.format(new Date());
-            if(nowStr.compareTo(user.getExpireTime())>0){
+            if(DateUtils.formatDateTime(new Date()).compareTo(user.getExpireTime())>0){
                 //登录失败，账号已过期
-                returnObject.setCode("0");
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
                 returnObject.setMessage("账号已过期");
             }else if("0".equals(user.getLockState())){
                 //登录失败，状态被锁定
-                returnObject.setCode("0");
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
                 returnObject.setMessage("状态被锁定");
             }else if(!user.getAllowIps().contains(request.getRemoteAddr())){
                 //登录失败，ip受限
-                returnObject.setCode("0");
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
                 returnObject.setMessage("ip受限");
             }else{
                 //登录成功
-                returnObject.setCode("1");
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+                //把user对象保存到session中
+                session.setAttribute(Contants.SESSION_USER,user);
             }
         }
 

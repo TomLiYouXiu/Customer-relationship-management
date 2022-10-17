@@ -11,6 +11,14 @@
 	<script type="text/javascript" src="jquery/bootstrap_3.3.0/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function () {
+			//给整个浏览器添加键盘按下事件
+			//给整个浏览器窗口添加键盘按下事件
+			$(window).keydown(function (e) {
+				//如果按的是回车键，则提交登录请求
+				if(e.keyCode==13){
+					$("#loginBtn").click();
+				}
+			});
 			//给"登录"按钮添加单击事件
 			$("#loginBtn").click(function () {
 				//收集参数
@@ -26,6 +34,7 @@
 					alert("密码不能为空");
 					return;
 				}
+				// $("#msg").text("正在登录请稍后");
 				//发送请求
 				$.ajax({
 					url:'settings/qx/user/login.do',
@@ -44,6 +53,11 @@
 							//提示信息
 							$("#msg").text(data.message);
 						}
+					},
+					beforeSend:function(){//当ajax会自动执行本函数，该函数的返回值能决定ajax是否真正向后台发送参数
+						//如果该函数的返回值为true，ajax会向后台发送请求，否则相反
+						$("#msg").text("正在登录请稍后");
+						return true;
 					}
 				});
 			});
