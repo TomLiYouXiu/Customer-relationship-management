@@ -453,6 +453,141 @@
 					creation   	FALSE))))
 			persistence 	"Transient"
 			creationObj 	FALSE
+			multi      	FALSE)))
+	    (object Mechanism @3
+		logical_models 	(list unit_reference_list
+		    (object Object "客户端"
+			quid       	"634E4BF40157"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"634E4BFD03DC"
+				supplier   	"客户端"
+				quidu      	"634E4BF40157"
+				messages   	(list Messages
+				    (object Message "用户点击退出按钮"
+					quid       	"634E4BFD03DD"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"1"
+					ordinal    	0
+					quidu      	"000000000000"
+					creation   	FALSE)
+				    (object Message "弹出确认退出的窗口"
+					quid       	"634E4C110311"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"2"
+					ordinal    	1
+					quidu      	"000000000000"
+					creation   	FALSE)
+				    (object Message "用户点击确定"
+					quid       	"634E4C2700F6"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"3"
+					ordinal    	2
+					quidu      	"000000000000"
+					creation   	FALSE)
+				    (object Message "浏览器显示登录页面"
+					quid       	"634E4D6A0309"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"10"
+					ordinal    	9
+					quidu      	"000000000000"
+					creation   	FALSE)))
+			    (object Link
+				quid       	"634E4C7901B4"
+				supplier   	"UserController"
+				quidu      	"634E4C3B038F"
+				messages   	(list Messages
+				    (object Message "退出请求"
+					quid       	"634E4C7901B5"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"4"
+					ordinal    	3
+					quidu      	"000000000000"
+					creation   	FALSE)
+				    (object Message "跳转到首页"
+					quid       	"634E4CE30349"
+					frequency  	"Aperiodic"
+					synchronization 	"Return"
+					dir        	"ToClientFromSupplier"
+					sequence   	"9"
+					ordinal    	8
+					quidu      	"000000000000"
+					creation   	FALSE))))
+			persistence 	"Transient"
+			creationObj 	FALSE
+			multi      	FALSE)
+		    (object Object "UserController"
+			quid       	"634E4C3B038F"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"634E4CBA01CA"
+				supplier   	"UserController"
+				quidu      	"634E4C3B038F"
+				messages   	(list Messages
+				    (object Message "清空 cookie"
+					quid       	"634E4CBA01CB"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"5"
+					ordinal    	4
+					quidu      	"000000000000"
+					creation   	FALSE)
+				    (object Message "销毁session"
+					quid       	"634E4CD402A5"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"6"
+					ordinal    	5
+					quidu      	"000000000000"
+					creation   	FALSE))))
+			persistence 	"Transient"
+			creationObj 	FALSE
+			multi      	FALSE)
+		    (object Object "项目首页"
+			quid       	"634E4D3000C7"
+			collaborators 	(list link_list
+			    (object Link
+				quid       	"634E4D3C012D"
+				supplier   	"项目首页"
+				quidu      	"634E4D3000C7"
+				messages   	(list Messages
+				    (object Message "跳转到登录网页"
+					quid       	"634E4D3C012E"
+					frequency  	"Aperiodic"
+					synchronization 	"Simple"
+					dir        	"FromClientToSupplier"
+					sequence   	"7"
+					ordinal    	6
+					quidu      	"000000000000"
+					creation   	FALSE)))
+			    (object Link
+				quid       	"634E4D5B0153"
+				supplier   	"客户端"
+				quidu      	"634E4BF40157"
+				messages   	(list Messages
+				    (object Message ""
+					quid       	"634E4D5B0154"
+					frequency  	"Aperiodic"
+					synchronization 	"Return"
+					dir        	"FromClientToSupplier"
+					sequence   	"8"
+					ordinal    	7
+					quidu      	"000000000000"
+					creation   	FALSE))))
+			persistence 	"Transient"
+			creationObj 	FALSE
 			multi      	FALSE))))
 	logical_presentations 	(list unit_reference_list
 	    (object ClassDiagram "Main"
@@ -474,7 +609,7 @@
 		origin_x   	0
 		origin_y   	81
 		items      	(list diagram_item_list
-		    (object InterObjView "客户端" @3
+		    (object InterObjView "客户端" @4
 			location   	(469, 225)
 			font       	(object Font
 			    size       	10
@@ -486,7 +621,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@3
+			    Parent_View 	@4
 			    location   	(469, 225)
 			    fill_color 	13434879
 			    anchor_loc 	1
@@ -504,77 +639,77 @@
 			icon_width 	0
 			icon_y_offset 	0
 			annotation 	1
-			Focus_Of_Control 	(object Focus_Of_Control "" @4
+			Focus_Of_Control 	(object Focus_Of_Control "" @5
 			    location   	(469, 372)
 			    line_color 	3342489
-			    InterObjView 	@3
+			    InterObjView 	@4
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @5
+			Focus_Of_Control 	(object Focus_Of_Control "" @6
 			    location   	(469, 397)
 			    line_color 	3342489
-			    InterObjView 	@3
+			    InterObjView 	@4
 			    height     	195
 			    y_coord    	105
 			    Nested     	TRUE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @6
+			Focus_Of_Control 	(object Focus_Of_Control "" @7
 			    location   	(469, 842)
 			    line_color 	3342489
-			    InterObjView 	@3
+			    InterObjView 	@4
 			    height     	195
 			    y_coord    	105
 			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @7
+			Focus_Of_Control 	(object Focus_Of_Control "" @8
 			    location   	(469, 972)
 			    line_color 	3342489
-			    InterObjView 	@3
+			    InterObjView 	@4
 			    height     	90
 			    y_coord    	0
 			    Nested     	TRUE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @8
+			Focus_Of_Control 	(object Focus_Of_Control "" @9
 			    location   	(469, 1122)
 			    line_color 	3342489
-			    InterObjView 	@3
+			    InterObjView 	@4
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @9
+			Focus_Of_Control 	(object Focus_Of_Control "" @10
 			    location   	(469, 1147)
 			    line_color 	3342489
-			    InterObjView 	@3
+			    InterObjView 	@4
 			    height     	90
 			    y_coord    	0
 			    Nested     	TRUE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @10
+			Focus_Of_Control 	(object Focus_Of_Control "" @11
 			    location   	(469, 1288)
 			    line_color 	3342489
-			    InterObjView 	@3
-			    height     	90
-			    y_coord    	0
-			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @11
-			    location   	(469, 1697)
-			    line_color 	3342489
-			    InterObjView 	@3
+			    InterObjView 	@4
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
 			Focus_Of_Control 	(object Focus_Of_Control "" @12
-			    location   	(469, 1813)
+			    location   	(469, 1697)
 			    line_color 	3342489
-			    InterObjView 	@3
+			    InterObjView 	@4
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
 			Focus_Of_Control 	(object Focus_Of_Control "" @13
+			    location   	(469, 1813)
+			    line_color 	3342489
+			    InterObjView 	@4
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @14
 			    location   	(469, 1838)
 			    line_color 	3342489
-			    InterObjView 	@3
+			    InterObjView 	@4
 			    height     	90
 			    y_coord    	0
 			    Nested     	TRUE))
-		    (object InterObjView "indexController" @14
+		    (object InterObjView "indexController" @15
 			location   	(1072, 225)
 			font       	(object Font
 			    size       	10
@@ -586,7 +721,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@14
+			    Parent_View 	@15
 			    location   	(1072, 225)
 			    fill_color 	13434879
 			    anchor_loc 	1
@@ -604,14 +739,14 @@
 			icon_width 	0
 			icon_y_offset 	0
 			annotation 	1
-			Focus_Of_Control 	(object Focus_Of_Control "" @15
+			Focus_Of_Control 	(object Focus_Of_Control "" @16
 			    location   	(1072, 502)
 			    line_color 	3342489
-			    InterObjView 	@14
+			    InterObjView 	@15
 			    height     	195
 			    y_coord    	105
 			    Nested     	FALSE))
-		    (object InterObjView "index.jsp" @16
+		    (object InterObjView "index.jsp" @17
 			location   	(1578, 225)
 			font       	(object Font
 			    size       	10
@@ -623,7 +758,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@16
+			    Parent_View 	@17
 			    location   	(1578, 225)
 			    fill_color 	13434879
 			    anchor_loc 	1
@@ -641,21 +776,21 @@
 			icon_width 	0
 			icon_y_offset 	0
 			annotation 	1
-			Focus_Of_Control 	(object Focus_Of_Control "" @17
+			Focus_Of_Control 	(object Focus_Of_Control "" @18
 			    location   	(1578, 607)
 			    line_color 	3342489
-			    InterObjView 	@16
+			    InterObjView 	@17
 			    height     	195
 			    y_coord    	105
 			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @18
+			Focus_Of_Control 	(object Focus_Of_Control "" @19
 			    location   	(1578, 737)
 			    line_color 	3342489
-			    InterObjView 	@16
+			    InterObjView 	@17
 			    height     	195
 			    y_coord    	105
 			    Nested     	TRUE))
-		    (object InterObjView "userController" @19
+		    (object InterObjView "userController" @20
 			location   	(2254, 225)
 			font       	(object Font
 			    size       	10
@@ -667,7 +802,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@19
+			    Parent_View 	@20
 			    location   	(2254, 225)
 			    fill_color 	13434879
 			    anchor_loc 	1
@@ -685,21 +820,21 @@
 			icon_width 	0
 			icon_y_offset 	0
 			annotation 	1
-			Focus_Of_Control 	(object Focus_Of_Control "" @20
+			Focus_Of_Control 	(object Focus_Of_Control "" @21
 			    location   	(2254, 1288)
 			    line_color 	3342489
-			    InterObjView 	@19
+			    InterObjView 	@20
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @21
+			Focus_Of_Control 	(object Focus_Of_Control "" @22
 			    location   	(2254, 1397)
 			    line_color 	3342489
-			    InterObjView 	@19
+			    InterObjView 	@20
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE))
-		    (object InterObjView "login.jsp" @22
+		    (object InterObjView "login.jsp" @23
 			location   	(2680, 225)
 			font       	(object Font
 			    size       	10
@@ -711,7 +846,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@22
+			    Parent_View 	@23
 			    location   	(2680, 225)
 			    fill_color 	13434879
 			    anchor_loc 	1
@@ -729,35 +864,35 @@
 			icon_width 	0
 			icon_y_offset 	0
 			annotation 	1
-			Focus_Of_Control 	(object Focus_Of_Control "" @23
+			Focus_Of_Control 	(object Focus_Of_Control "" @24
 			    location   	(2680, 1397)
 			    line_color 	3342489
-			    InterObjView 	@22
-			    height     	90
-			    y_coord    	0
-			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @24
-			    location   	(2680, 1538)
-			    line_color 	3342489
-			    InterObjView 	@22
+			    InterObjView 	@23
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
 			Focus_Of_Control 	(object Focus_Of_Control "" @25
+			    location   	(2680, 1538)
+			    line_color 	3342489
+			    InterObjView 	@23
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @26
 			    location   	(2680, 1563)
 			    line_color 	3342489
-			    InterObjView 	@22
+			    InterObjView 	@23
 			    height     	90
 			    y_coord    	0
 			    Nested     	TRUE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @26
+			Focus_Of_Control 	(object Focus_Of_Control "" @27
 			    location   	(2680, 1697)
 			    line_color 	3342489
-			    InterObjView 	@22
+			    InterObjView 	@23
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE))
-		    (object SelfMessView "用户在浏览器输入url,回车" @27
+		    (object SelfMessView "用户在浏览器输入url,回车" @28
 			location   	(0, 372)
 			font       	(object Font
 			    size       	10
@@ -768,8 +903,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @28
-			    Parent_View 	@27
+			label      	(object SegLabel @29
+			    Parent_View 	@28
 			    location   	(560, 328)
 			    font       	(object Font
 				size       	10
@@ -790,14 +925,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@3
-			supplier   	@3
-			Focus_Src  	@4
-			Focus_Entry 	@5
+			client     	@4
+			supplier   	@4
+			Focus_Src  	@5
+			Focus_Entry 	@6
 			origin     	(485, 372)
 			terminus   	(635, 372)
 			ordinal    	0)
-		    (object InterMessView "跳转请求" @29
+		    (object InterMessView "跳转请求" @30
 			location   	(0, 502)
 			font       	(object Font
 			    size       	10
@@ -808,8 +943,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @30
-			    Parent_View 	@29
+			label      	(object SegLabel @31
+			    Parent_View 	@30
 			    location   	(770, 458)
 			    font       	(object Font
 				size       	10
@@ -830,14 +965,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@3
-			supplier   	@14
-			Focus_Src  	@5
-			Focus_Entry 	@15
+			client     	@4
+			supplier   	@15
+			Focus_Src  	@6
+			Focus_Entry 	@16
 			origin     	(484, 502)
 			terminus   	(1056, 502)
 			ordinal    	1)
-		    (object InterMessView "跳转" @31
+		    (object InterMessView "跳转" @32
 			location   	(0, 607)
 			font       	(object Font
 			    size       	10
@@ -848,8 +983,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @32
-			    Parent_View 	@31
+			label      	(object SegLabel @33
+			    Parent_View 	@32
 			    location   	(1324, 563)
 			    font       	(object Font
 				size       	10
@@ -870,14 +1005,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@14
-			supplier   	@16
-			Focus_Src  	@15
-			Focus_Entry 	@17
+			client     	@15
+			supplier   	@17
+			Focus_Src  	@16
+			Focus_Entry 	@18
 			origin     	(1087, 607)
 			terminus   	(1562, 607)
 			ordinal    	2)
-		    (object SelfMessView "jsp现在tomcat上运行。结果是一个html网页" @33
+		    (object SelfMessView "jsp现在tomcat上运行。结果是一个html网页" @34
 			location   	(0, 712)
 			font       	(object Font
 			    size       	10
@@ -888,8 +1023,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @34
-			    Parent_View 	@33
+			label      	(object SegLabel @35
+			    Parent_View 	@34
 			    location   	(1669, 668)
 			    font       	(object Font
 				size       	10
@@ -910,14 +1045,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@16
-			supplier   	@16
-			Focus_Src  	@17
-			Focus_Entry 	@18
+			client     	@17
+			supplier   	@17
+			Focus_Src  	@18
+			Focus_Entry 	@19
 			origin     	(1594, 712)
 			terminus   	(1744, 712)
 			ordinal    	3)
-		    (object InterMessView "响应" @35
+		    (object InterMessView "响应" @36
 			location   	(0, 842)
 			font       	(object Font
 			    size       	10
@@ -928,8 +1063,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @36
-			    Parent_View 	@35
+			label      	(object SegLabel @37
+			    Parent_View 	@36
 			    location   	(1024, 798)
 			    font       	(object Font
 				size       	10
@@ -950,14 +1085,14 @@
 			    height     	45
 			    orientation 	1)
 			line_color 	3342489
-			client     	@16
-			supplier   	@3
-			Focus_Src  	@18
-			Focus_Entry 	@6
+			client     	@17
+			supplier   	@4
+			Focus_Src  	@19
+			Focus_Entry 	@7
 			origin     	(1562, 842)
 			terminus   	(485, 842)
 			ordinal    	4)
-		    (object NoteView @37
+		    (object NoteView @38
 			location   	(1257, 934)
 			font       	(object Font
 			    size       	10
@@ -969,7 +1104,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@37
+			    Parent_View 	@38
 			    location   	(1119, 874)
 			    fill_color 	13434879
 			    nlines     	2
@@ -980,7 +1115,7 @@
 			fill_color 	13434879
 			width      	300
 			height     	132)
-		    (object SelfMessView "浏览器在窗口上显示crm的首页" @38
+		    (object SelfMessView "浏览器在窗口上显示crm的首页" @39
 			location   	(0, 947)
 			font       	(object Font
 			    size       	10
@@ -991,8 +1126,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @39
-			    Parent_View 	@38
+			label      	(object SegLabel @40
+			    Parent_View 	@39
 			    location   	(560, 903)
 			    font       	(object Font
 				size       	10
@@ -1013,14 +1148,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@3
-			supplier   	@3
-			Focus_Src  	@6
-			Focus_Entry 	@7
+			client     	@4
+			supplier   	@4
+			Focus_Src  	@7
+			Focus_Entry 	@8
 			origin     	(485, 947)
 			terminus   	(635, 947)
 			ordinal    	5)
-		    (object SelfMessView "当首页打开时，通过Windows.location向登录页面发请求" @40
+		    (object SelfMessView "当首页打开时，通过Windows.location向登录页面发请求" @41
 			location   	(0, 1122)
 			font       	(object Font
 			    size       	10
@@ -1031,8 +1166,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @41
-			    Parent_View 	@40
+			label      	(object SegLabel @42
+			    Parent_View 	@41
 			    location   	(560, 1078)
 			    font       	(object Font
 				size       	10
@@ -1053,14 +1188,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@3
-			supplier   	@3
-			Focus_Src  	@8
-			Focus_Entry 	@9
+			client     	@4
+			supplier   	@4
+			Focus_Src  	@9
+			Focus_Entry 	@10
 			origin     	(485, 1122)
 			terminus   	(635, 1122)
 			ordinal    	6)
-		    (object InterMessView "跳转请求" @42
+		    (object InterMessView "跳转请求" @43
 			location   	(0, 1288)
 			font       	(object Font
 			    size       	10
@@ -1071,8 +1206,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @43
-			    Parent_View 	@42
+			label      	(object SegLabel @44
+			    Parent_View 	@43
 			    location   	(1361, 1244)
 			    font       	(object Font
 				size       	10
@@ -1093,23 +1228,23 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@3
-			supplier   	@19
-			Focus_Src  	@10
-			Focus_Entry 	@20
+			client     	@4
+			supplier   	@20
+			Focus_Src  	@11
+			Focus_Entry 	@21
 			origin     	(484, 1288)
 			terminus   	(2238, 1288)
 			ordinal    	7)
-		    (object AttachView "" @44
+		    (object AttachView "" @45
 			stereotype 	TRUE
 			line_color 	3342489
-			client     	@37
-			supplier   	@35
+			client     	@38
+			supplier   	@36
 			vertices   	(list Points
 			    (1106, 874)
 			    (1023, 842))
 			line_style 	0)
-		    (object InterMessView "跳转" @45
+		    (object InterMessView "跳转" @46
 			location   	(0, 1397)
 			font       	(object Font
 			    size       	10
@@ -1120,8 +1255,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @46
-			    Parent_View 	@45
+			label      	(object SegLabel @47
+			    Parent_View 	@46
 			    location   	(2466, 1353)
 			    font       	(object Font
 				size       	10
@@ -1142,14 +1277,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@19
-			supplier   	@22
-			Focus_Src  	@21
-			Focus_Entry 	@23
+			client     	@20
+			supplier   	@23
+			Focus_Src  	@22
+			Focus_Entry 	@24
 			origin     	(2269, 1397)
 			terminus   	(2664, 1397)
 			ordinal    	8)
-		    (object SelfMessView "jsp现在tomcat上运行。结果是一个html网页" @47
+		    (object SelfMessView "jsp现在tomcat上运行。结果是一个html网页" @48
 			location   	(0, 1538)
 			font       	(object Font
 			    size       	10
@@ -1160,8 +1295,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @48
-			    Parent_View 	@47
+			label      	(object SegLabel @49
+			    Parent_View 	@48
 			    location   	(2771, 1494)
 			    font       	(object Font
 				size       	10
@@ -1182,14 +1317,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@22
-			supplier   	@22
-			Focus_Src  	@24
-			Focus_Entry 	@25
+			client     	@23
+			supplier   	@23
+			Focus_Src  	@25
+			Focus_Entry 	@26
 			origin     	(2696, 1538)
 			terminus   	(2846, 1538)
 			ordinal    	9)
-		    (object InterMessView "响应" @49
+		    (object InterMessView "响应" @50
 			location   	(0, 1697)
 			font       	(object Font
 			    size       	10
@@ -1200,8 +1335,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @50
-			    Parent_View 	@49
+			label      	(object SegLabel @51
+			    Parent_View 	@50
 			    location   	(1575, 1653)
 			    font       	(object Font
 				size       	10
@@ -1222,14 +1357,14 @@
 			    height     	45
 			    orientation 	1)
 			line_color 	3342489
-			client     	@22
-			supplier   	@3
-			Focus_Src  	@26
-			Focus_Entry 	@11
+			client     	@23
+			supplier   	@4
+			Focus_Src  	@27
+			Focus_Entry 	@12
 			origin     	(2664, 1697)
 			terminus   	(485, 1697)
 			ordinal    	10)
-		    (object NoteView @51
+		    (object NoteView @52
 			location   	(1257, 934)
 			font       	(object Font
 			    size       	10
@@ -1241,7 +1376,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@51
+			    Parent_View 	@52
 			    location   	(1119, 874)
 			    fill_color 	13434879
 			    nlines     	2
@@ -1252,7 +1387,7 @@
 			fill_color 	13434879
 			width      	300
 			height     	132)
-		    (object NoteView @52
+		    (object NoteView @53
 			location   	(1778, 1794)
 			font       	(object Font
 			    size       	10
@@ -1264,7 +1399,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@52
+			    Parent_View 	@53
 			    location   	(1640, 1734)
 			    fill_color 	13434879
 			    nlines     	2
@@ -1275,16 +1410,16 @@
 			fill_color 	13434879
 			width      	300
 			height     	132)
-		    (object AttachView "" @53
+		    (object AttachView "" @54
 			stereotype 	TRUE
 			line_color 	3342489
-			client     	@49
-			supplier   	@52
+			client     	@50
+			supplier   	@53
 			vertices   	(list Points
 			    (1574, 1697)
 			    (1639, 1727))
 			line_style 	0)
-		    (object SelfMessView "浏览器在网页上显示登录页面" @54
+		    (object SelfMessView "浏览器在网页上显示登录页面" @55
 			location   	(0, 1813)
 			font       	(object Font
 			    size       	10
@@ -1295,8 +1430,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @55
-			    Parent_View 	@54
+			label      	(object SegLabel @56
+			    Parent_View 	@55
 			    location   	(575, 1797)
 			    font       	(object Font
 				size       	10
@@ -1317,10 +1452,10 @@
 			    height     	17
 			    orientation 	0)
 			line_color 	3342489
-			client     	@3
-			supplier   	@3
-			Focus_Src  	@12
-			Focus_Entry 	@13
+			client     	@4
+			supplier   	@4
+			Focus_Src  	@13
+			Focus_Entry 	@14
 			origin     	(485, 1813)
 			terminus   	(635, 1813)
 			ordinal    	11)))
@@ -1334,7 +1469,7 @@
 		origin_x   	0
 		origin_y   	0
 		items      	(list diagram_item_list
-		    (object InterObjView "客户端" @56
+		    (object InterObjView "客户端" @57
 			location   	(250, 225)
 			font       	(object Font
 			    size       	10
@@ -1346,7 +1481,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@56
+			    Parent_View 	@57
 			    location   	(250, 225)
 			    fill_color 	13434879
 			    anchor_loc 	1
@@ -1364,63 +1499,63 @@
 			icon_width 	0
 			icon_y_offset 	0
 			annotation 	1
-			Focus_Of_Control 	(object Focus_Of_Control "" @57
+			Focus_Of_Control 	(object Focus_Of_Control "" @58
 			    location   	(250, 347)
 			    line_color 	3342489
-			    InterObjView 	@56
+			    InterObjView 	@57
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @58
+			Focus_Of_Control 	(object Focus_Of_Control "" @59
 			    location   	(250, 372)
 			    line_color 	3342489
-			    InterObjView 	@56
+			    InterObjView 	@57
 			    height     	90
 			    y_coord    	0
 			    Nested     	TRUE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @59
+			Focus_Of_Control 	(object Focus_Of_Control "" @60
 			    location   	(250, 488)
 			    line_color 	3342489
-			    InterObjView 	@56
+			    InterObjView 	@57
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @60
+			Focus_Of_Control 	(object Focus_Of_Control "" @61
 			    location   	(250, 513)
 			    line_color 	3342489
-			    InterObjView 	@56
+			    InterObjView 	@57
 			    height     	90
 			    y_coord    	0
 			    Nested     	TRUE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @61
+			Focus_Of_Control 	(object Focus_Of_Control "" @62
 			    location   	(250, 618)
 			    line_color 	3342489
-			    InterObjView 	@56
-			    height     	90
-			    y_coord    	0
-			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @62
-			    location   	(250, 1887)
-			    line_color 	3342489
-			    InterObjView 	@56
+			    InterObjView 	@57
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
 			Focus_Of_Control 	(object Focus_Of_Control "" @63
-			    location   	(250, 2053)
+			    location   	(250, 1887)
 			    line_color 	3342489
-			    InterObjView 	@56
+			    InterObjView 	@57
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
 			Focus_Of_Control 	(object Focus_Of_Control "" @64
+			    location   	(250, 2053)
+			    line_color 	3342489
+			    InterObjView 	@57
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @65
 			    location   	(250, 2078)
 			    line_color 	3342489
-			    InterObjView 	@56
+			    InterObjView 	@57
 			    height     	90
 			    y_coord    	0
 			    Nested     	TRUE))
-		    (object InterObjView "UserController" @65
+		    (object InterObjView "UserController" @66
 			location   	(844, 225)
 			font       	(object Font
 			    size       	10
@@ -1432,7 +1567,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@65
+			    Parent_View 	@66
 			    location   	(844, 225)
 			    fill_color 	13434879
 			    anchor_loc 	1
@@ -1450,77 +1585,77 @@
 			icon_width 	0
 			icon_y_offset 	0
 			annotation 	1
-			Focus_Of_Control 	(object Focus_Of_Control "" @66
+			Focus_Of_Control 	(object Focus_Of_Control "" @67
 			    location   	(844, 618)
 			    line_color 	3342489
-			    InterObjView 	@65
-			    height     	90
-			    y_coord    	0
-			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @67
-			    location   	(844, 738)
-			    line_color 	3342489
-			    InterObjView 	@65
+			    InterObjView 	@66
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
 			Focus_Of_Control 	(object Focus_Of_Control "" @68
+			    location   	(844, 738)
+			    line_color 	3342489
+			    InterObjView 	@66
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @69
 			    location   	(844, 763)
 			    line_color 	3342489
-			    InterObjView 	@65
+			    InterObjView 	@66
 			    height     	90
 			    y_coord    	0
 			    Nested     	TRUE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @69
+			Focus_Of_Control 	(object Focus_Of_Control "" @70
 			    location   	(844, 906)
 			    line_color 	3342489
-			    InterObjView 	@65
+			    InterObjView 	@66
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @70
+			Focus_Of_Control 	(object Focus_Of_Control "" @71
 			    location   	(844, 931)
 			    line_color 	3342489
-			    InterObjView 	@65
+			    InterObjView 	@66
 			    height     	90
 			    y_coord    	0
 			    Nested     	TRUE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @71
+			Focus_Of_Control 	(object Focus_Of_Control "" @72
 			    location   	(844, 1041)
 			    line_color 	3342489
-			    InterObjView 	@65
-			    height     	90
-			    y_coord    	0
-			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @72
-			    location   	(844, 1597)
-			    line_color 	3342489
-			    InterObjView 	@65
+			    InterObjView 	@66
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
 			Focus_Of_Control 	(object Focus_Of_Control "" @73
-			    location   	(844, 1737)
+			    location   	(844, 1597)
 			    line_color 	3342489
-			    InterObjView 	@65
+			    InterObjView 	@66
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
 			Focus_Of_Control 	(object Focus_Of_Control "" @74
+			    location   	(844, 1737)
+			    line_color 	3342489
+			    InterObjView 	@66
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @75
 			    location   	(844, 1762)
 			    line_color 	3342489
-			    InterObjView 	@65
+			    InterObjView 	@66
 			    height     	90
 			    y_coord    	0
 			    Nested     	TRUE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @75
+			Focus_Of_Control 	(object Focus_Of_Control "" @76
 			    location   	(844, 1887)
 			    line_color 	3342489
-			    InterObjView 	@65
+			    InterObjView 	@66
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE))
-		    (object InterObjView "UserService" @76
+		    (object InterObjView "UserService" @77
 			location   	(1528, 225)
 			font       	(object Font
 			    size       	10
@@ -1532,7 +1667,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@76
+			    Parent_View 	@77
 			    location   	(1528, 225)
 			    fill_color 	13434879
 			    anchor_loc 	1
@@ -1550,28 +1685,28 @@
 			icon_width 	0
 			icon_y_offset 	0
 			annotation 	1
-			Focus_Of_Control 	(object Focus_Of_Control "" @77
+			Focus_Of_Control 	(object Focus_Of_Control "" @78
 			    location   	(1528, 1041)
 			    line_color 	3342489
-			    InterObjView 	@76
+			    InterObjView 	@77
 			    height     	195
 			    y_coord    	105
 			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @78
+			Focus_Of_Control 	(object Focus_Of_Control "" @79
 			    location   	(1528, 1466)
 			    line_color 	3342489
-			    InterObjView 	@76
+			    InterObjView 	@77
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @79
+			Focus_Of_Control 	(object Focus_Of_Control "" @80
 			    location   	(1528, 1597)
 			    line_color 	3342489
-			    InterObjView 	@76
+			    InterObjView 	@77
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE))
-		    (object InterObjView "UserMapper" @80
+		    (object InterObjView "UserMapper" @81
 			location   	(2101, 225)
 			font       	(object Font
 			    size       	10
@@ -1583,7 +1718,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@80
+			    Parent_View 	@81
 			    location   	(2101, 225)
 			    fill_color 	13434879
 			    anchor_loc 	1
@@ -1601,35 +1736,35 @@
 			icon_width 	0
 			icon_y_offset 	0
 			annotation 	1
-			Focus_Of_Control 	(object Focus_Of_Control "" @81
+			Focus_Of_Control 	(object Focus_Of_Control "" @82
 			    location   	(2101, 1146)
 			    line_color 	3342489
-			    InterObjView 	@80
-			    height     	90
-			    y_coord    	0
-			    Nested     	FALSE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @82
-			    location   	(2101, 1303)
-			    line_color 	3342489
-			    InterObjView 	@80
+			    InterObjView 	@81
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE)
 			Focus_Of_Control 	(object Focus_Of_Control "" @83
+			    location   	(2101, 1303)
+			    line_color 	3342489
+			    InterObjView 	@81
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @84
 			    location   	(2101, 1328)
 			    line_color 	3342489
-			    InterObjView 	@80
+			    InterObjView 	@81
 			    height     	90
 			    y_coord    	0
 			    Nested     	TRUE)
-			Focus_Of_Control 	(object Focus_Of_Control "" @84
+			Focus_Of_Control 	(object Focus_Of_Control "" @85
 			    location   	(2101, 1466)
 			    line_color 	3342489
-			    InterObjView 	@80
+			    InterObjView 	@81
 			    height     	90
 			    y_coord    	0
 			    Nested     	FALSE))
-		    (object SelfMessView "用户输入用户名和密码" @85
+		    (object SelfMessView "用户输入用户名和密码" @86
 			location   	(0, 347)
 			font       	(object Font
 			    size       	10
@@ -1640,8 +1775,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @86
-			    Parent_View 	@85
+			label      	(object SegLabel @87
+			    Parent_View 	@86
 			    location   	(341, 303)
 			    font       	(object Font
 				size       	10
@@ -1662,14 +1797,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@56
-			supplier   	@56
-			Focus_Src  	@57
-			Focus_Entry 	@58
+			client     	@57
+			supplier   	@57
+			Focus_Src  	@58
+			Focus_Entry 	@59
 			origin     	(266, 347)
 			terminus   	(416, 347)
 			ordinal    	0)
-		    (object SelfMessView "用户点击登录按钮或者回车键" @87
+		    (object SelfMessView "用户点击登录按钮或者回车键" @88
 			location   	(0, 488)
 			font       	(object Font
 			    size       	10
@@ -1680,8 +1815,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @88
-			    Parent_View 	@87
+			label      	(object SegLabel @89
+			    Parent_View 	@88
 			    location   	(341, 444)
 			    font       	(object Font
 				size       	10
@@ -1702,14 +1837,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@56
-			supplier   	@56
-			Focus_Src  	@59
-			Focus_Entry 	@60
+			client     	@57
+			supplier   	@57
+			Focus_Src  	@60
+			Focus_Entry 	@61
 			origin     	(266, 488)
 			terminus   	(416, 488)
 			ordinal    	1)
-		    (object InterMessView "登录请求" @89
+		    (object InterMessView "登录请求" @90
 			location   	(0, 618)
 			font       	(object Font
 			    size       	10
@@ -1720,8 +1855,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @90
-			    Parent_View 	@89
+			label      	(object SegLabel @91
+			    Parent_View 	@90
 			    location   	(546, 574)
 			    font       	(object Font
 				size       	10
@@ -1742,14 +1877,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@56
-			supplier   	@65
-			Focus_Src  	@61
-			Focus_Entry 	@66
+			client     	@57
+			supplier   	@66
+			Focus_Src  	@62
+			Focus_Entry 	@67
 			origin     	(265, 618)
 			terminus   	(828, 618)
 			ordinal    	2)
-		    (object NoteView @91
+		    (object NoteView @92
 			location   	(522, 759)
 			font       	(object Font
 			    size       	10
@@ -1761,7 +1896,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@91
+			    Parent_View 	@92
 			    location   	(328, 643)
 			    fill_color 	13434879
 			    nlines     	4
@@ -1776,7 +1911,7 @@
 			fill_color 	13434879
 			width      	413
 			height     	244)
-		    (object SelfMessView "获取参数" @92
+		    (object SelfMessView "获取参数" @93
 			location   	(0, 738)
 			font       	(object Font
 			    size       	10
@@ -1787,8 +1922,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @93
-			    Parent_View 	@92
+			label      	(object SegLabel @94
+			    Parent_View 	@93
 			    location   	(935, 694)
 			    font       	(object Font
 				size       	10
@@ -1809,14 +1944,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@65
-			supplier   	@65
-			Focus_Src  	@67
-			Focus_Entry 	@68
+			client     	@66
+			supplier   	@66
+			Focus_Src  	@68
+			Focus_Entry 	@69
 			origin     	(860, 738)
 			terminus   	(1010, 738)
 			ordinal    	3)
-		    (object SelfMessView "封装参数（map）" @94
+		    (object SelfMessView "封装参数（map）" @95
 			location   	(0, 906)
 			font       	(object Font
 			    size       	10
@@ -1827,8 +1962,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @95
-			    Parent_View 	@94
+			label      	(object SegLabel @96
+			    Parent_View 	@95
 			    location   	(935, 862)
 			    font       	(object Font
 				size       	10
@@ -1849,14 +1984,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@65
-			supplier   	@65
-			Focus_Src  	@69
-			Focus_Entry 	@70
+			client     	@66
+			supplier   	@66
+			Focus_Src  	@70
+			Focus_Entry 	@71
 			origin     	(860, 906)
 			terminus   	(1010, 906)
 			ordinal    	4)
-		    (object InterMessView "queryUserByLoginActAndPwd(map)" @96
+		    (object InterMessView "queryUserByLoginActAndPwd(map)" @97
 			location   	(0, 1041)
 			font       	(object Font
 			    size       	10
@@ -1867,8 +2002,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @97
-			    Parent_View 	@96
+			label      	(object SegLabel @98
+			    Parent_View 	@97
 			    location   	(1185, 997)
 			    font       	(object Font
 				size       	10
@@ -1889,14 +2024,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@65
-			supplier   	@76
-			Focus_Src  	@71
-			Focus_Entry 	@77
+			client     	@66
+			supplier   	@77
+			Focus_Src  	@72
+			Focus_Entry 	@78
 			origin     	(859, 1041)
 			terminus   	(1512, 1041)
 			ordinal    	5)
-		    (object InterMessView "selectUserByLoginActAndPwd(map)" @98
+		    (object InterMessView "selectUserByLoginActAndPwd(map)" @99
 			location   	(0, 1146)
 			font       	(object Font
 			    size       	10
@@ -1907,8 +2042,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @99
-			    Parent_View 	@98
+			label      	(object SegLabel @100
+			    Parent_View 	@99
 			    location   	(1814, 1102)
 			    font       	(object Font
 				size       	10
@@ -1929,14 +2064,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@76
-			supplier   	@80
-			Focus_Src  	@77
-			Focus_Entry 	@81
+			client     	@77
+			supplier   	@81
+			Focus_Src  	@78
+			Focus_Entry 	@82
 			origin     	(1543, 1146)
 			terminus   	(2085, 1146)
 			ordinal    	6)
-		    (object SelfMessView "执行sql语句，查询用户" @100
+		    (object SelfMessView "执行sql语句，查询用户" @101
 			location   	(0, 1303)
 			font       	(object Font
 			    size       	10
@@ -1947,8 +2082,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @101
-			    Parent_View 	@100
+			label      	(object SegLabel @102
+			    Parent_View 	@101
 			    location   	(2192, 1259)
 			    font       	(object Font
 				size       	10
@@ -1969,14 +2104,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@80
-			supplier   	@80
-			Focus_Src  	@82
-			Focus_Entry 	@83
+			client     	@81
+			supplier   	@81
+			Focus_Src  	@83
+			Focus_Entry 	@84
 			origin     	(2117, 1303)
 			terminus   	(2267, 1303)
 			ordinal    	7)
-		    (object InterMessView "user" @102
+		    (object InterMessView "user" @103
 			location   	(0, 1466)
 			font       	(object Font
 			    size       	10
@@ -1987,8 +2122,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @103
-			    Parent_View 	@102
+			label      	(object SegLabel @104
+			    Parent_View 	@103
 			    location   	(1815, 1422)
 			    font       	(object Font
 				size       	10
@@ -2009,14 +2144,14 @@
 			    height     	45
 			    orientation 	1)
 			line_color 	3342489
-			client     	@80
-			supplier   	@76
-			Focus_Src  	@84
-			Focus_Entry 	@78
+			client     	@81
+			supplier   	@77
+			Focus_Src  	@85
+			Focus_Entry 	@79
 			origin     	(2085, 1466)
 			terminus   	(1544, 1466)
 			ordinal    	8)
-		    (object InterMessView "user" @104
+		    (object InterMessView "user" @105
 			location   	(0, 1597)
 			font       	(object Font
 			    size       	10
@@ -2027,8 +2162,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @105
-			    Parent_View 	@104
+			label      	(object SegLabel @106
+			    Parent_View 	@105
 			    location   	(1186, 1553)
 			    font       	(object Font
 				size       	10
@@ -2049,14 +2184,14 @@
 			    height     	45
 			    orientation 	1)
 			line_color 	3342489
-			client     	@76
-			supplier   	@65
-			Focus_Src  	@79
-			Focus_Entry 	@72
+			client     	@77
+			supplier   	@66
+			Focus_Src  	@80
+			Focus_Entry 	@73
 			origin     	(1512, 1597)
 			terminus   	(860, 1597)
 			ordinal    	9)
-		    (object SelfMessView "根据查询结果，生成响应信息" @106
+		    (object SelfMessView "根据查询结果，生成响应信息" @107
 			location   	(0, 1737)
 			font       	(object Font
 			    size       	10
@@ -2067,8 +2202,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @107
-			    Parent_View 	@106
+			label      	(object SegLabel @108
+			    Parent_View 	@107
 			    location   	(935, 1693)
 			    font       	(object Font
 				size       	10
@@ -2089,14 +2224,14 @@
 			    height     	45
 			    orientation 	0)
 			line_color 	3342489
-			client     	@65
-			supplier   	@65
-			Focus_Src  	@73
-			Focus_Entry 	@74
+			client     	@66
+			supplier   	@66
+			Focus_Src  	@74
+			Focus_Entry 	@75
 			origin     	(860, 1737)
 			terminus   	(1010, 1737)
 			ordinal    	10)
-		    (object InterMessView "响应" @108
+		    (object InterMessView "响应" @109
 			location   	(0, 1887)
 			font       	(object Font
 			    size       	10
@@ -2107,8 +2242,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @109
-			    Parent_View 	@108
+			label      	(object SegLabel @110
+			    Parent_View 	@109
 			    location   	(547, 1843)
 			    font       	(object Font
 				size       	10
@@ -2129,14 +2264,14 @@
 			    height     	45
 			    orientation 	1)
 			line_color 	3342489
-			client     	@65
-			supplier   	@56
-			Focus_Src  	@75
-			Focus_Entry 	@62
+			client     	@66
+			supplier   	@57
+			Focus_Src  	@76
+			Focus_Entry 	@63
 			origin     	(828, 1887)
 			terminus   	(266, 1887)
 			ordinal    	11)
-		    (object NoteView @110
+		    (object NoteView @111
 			location   	(559, 1984)
 			font       	(object Font
 			    size       	10
@@ -2148,7 +2283,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@110
+			    Parent_View 	@111
 			    location   	(315, 1874)
 			    fill_color 	13434879
 			    nlines     	4
@@ -2164,7 +2299,7 @@
 			fill_color 	13434879
 			width      	512
 			height     	232)
-		    (object SelfMessView "解析JSON" @111
+		    (object SelfMessView "解析JSON" @112
 			location   	(0, 2053)
 			font       	(object Font
 			    size       	10
@@ -2175,8 +2310,8 @@
 			    strike     	FALSE
 			    color      	0
 			    default_color 	TRUE)
-			label      	(object SegLabel @112
-			    Parent_View 	@111
+			label      	(object SegLabel @113
+			    Parent_View 	@112
 			    location   	(262, 2138)
 			    font       	(object Font
 				size       	10
@@ -2194,16 +2329,679 @@
 			    justify    	0
 			    label      	"解析JSON"
 			    pctDist    	-0.026667
-			    height     	85
+			    height     	45
 			    orientation 	1)
 			line_color 	3342489
-			client     	@56
-			supplier   	@56
-			Focus_Src  	@63
-			Focus_Entry 	@64
+			client     	@57
+			supplier   	@57
+			Focus_Src  	@64
+			Focus_Entry 	@65
 			origin     	(266, 2053)
 			terminus   	(416, 2053)
-			ordinal    	12)))))
+			ordinal    	12)))
+	    (object InteractionDiagram "安全退出"
+		mechanism_ref 	@3
+		quid       	"634E27C40169"
+		title      	"安全退出"
+		zoom       	100
+		max_height 	28350
+		max_width  	21600
+		origin_x   	0
+		origin_y   	0
+		items      	(list diagram_item_list
+		    (object InterObjView "客户端" @114
+			location   	(216, 225)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	TRUE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@114
+			    location   	(216, 225)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"客户端")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"634E4BF40157"
+			width      	300
+			height     	1655
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @115
+			    location   	(216, 369)
+			    line_color 	3342489
+			    InterObjView 	@114
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @116
+			    location   	(216, 394)
+			    line_color 	3342489
+			    InterObjView 	@114
+			    height     	90
+			    y_coord    	0
+			    Nested     	TRUE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @117
+			    location   	(216, 528)
+			    line_color 	3342489
+			    InterObjView 	@114
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @118
+			    location   	(216, 553)
+			    line_color 	3342489
+			    InterObjView 	@114
+			    height     	90
+			    y_coord    	0
+			    Nested     	TRUE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @119
+			    location   	(216, 667)
+			    line_color 	3342489
+			    InterObjView 	@114
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @120
+			    location   	(216, 692)
+			    line_color 	3342489
+			    InterObjView 	@114
+			    height     	90
+			    y_coord    	0
+			    Nested     	TRUE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @121
+			    location   	(216, 806)
+			    line_color 	3342489
+			    InterObjView 	@114
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @122
+			    location   	(216, 1436)
+			    line_color 	3342489
+			    InterObjView 	@114
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @123
+			    location   	(216, 1541)
+			    line_color 	3342489
+			    InterObjView 	@114
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @124
+			    location   	(216, 1675)
+			    line_color 	3342489
+			    InterObjView 	@114
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @125
+			    location   	(216, 1700)
+			    line_color 	3342489
+			    InterObjView 	@114
+			    height     	90
+			    y_coord    	0
+			    Nested     	TRUE))
+		    (object InterObjView "UserController" @126
+			location   	(772, 225)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	TRUE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@126
+			    location   	(772, 225)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"UserController")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"634E4C3B038F"
+			width      	300
+			height     	1655
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @127
+			    location   	(772, 806)
+			    line_color 	3342489
+			    InterObjView 	@126
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @128
+			    location   	(772, 934)
+			    line_color 	3342489
+			    InterObjView 	@126
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @129
+			    location   	(772, 959)
+			    line_color 	3342489
+			    InterObjView 	@126
+			    height     	90
+			    y_coord    	0
+			    Nested     	TRUE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @130
+			    location   	(772, 1109)
+			    line_color 	3342489
+			    InterObjView 	@126
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @131
+			    location   	(772, 1134)
+			    line_color 	3342489
+			    InterObjView 	@126
+			    height     	90
+			    y_coord    	0
+			    Nested     	TRUE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @132
+			    location   	(772, 1541)
+			    line_color 	3342489
+			    InterObjView 	@126
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE))
+		    (object InterObjView "项目首页" @133
+			location   	(1216, 225)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	TRUE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@133
+			    location   	(1216, 225)
+			    fill_color 	13434879
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	282
+			    justify    	0
+			    label      	"项目首页")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"634E4D3000C7"
+			width      	300
+			height     	1655
+			icon_height 	0
+			icon_width 	0
+			icon_y_offset 	0
+			annotation 	1
+			Focus_Of_Control 	(object Focus_Of_Control "" @134
+			    location   	(1216, 1239)
+			    line_color 	3342489
+			    InterObjView 	@133
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @135
+			    location   	(1216, 1264)
+			    line_color 	3342489
+			    InterObjView 	@133
+			    height     	90
+			    y_coord    	0
+			    Nested     	TRUE)
+			Focus_Of_Control 	(object Focus_Of_Control "" @136
+			    location   	(1216, 1436)
+			    line_color 	3342489
+			    InterObjView 	@133
+			    height     	90
+			    y_coord    	0
+			    Nested     	FALSE))
+		    (object SelfMessView "用户点击退出按钮" @137
+			location   	(0, 369)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @138
+			    Parent_View 	@137
+			    location   	(307, 325)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"634E4BFD03DD"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	407
+			    justify    	0
+			    label      	"用户点击退出按钮"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@114
+			supplier   	@114
+			Focus_Src  	@115
+			Focus_Entry 	@116
+			origin     	(232, 369)
+			terminus   	(382, 369)
+			ordinal    	0)
+		    (object SelfMessView "弹出确认退出的窗口" @139
+			location   	(0, 528)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @140
+			    Parent_View 	@139
+			    location   	(307, 484)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"634E4C110311"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	451
+			    justify    	0
+			    label      	"弹出确认退出的窗口"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@114
+			supplier   	@114
+			Focus_Src  	@117
+			Focus_Entry 	@118
+			origin     	(232, 528)
+			terminus   	(382, 528)
+			ordinal    	1)
+		    (object SelfMessView "用户点击确定" @141
+			location   	(0, 667)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @142
+			    Parent_View 	@141
+			    location   	(307, 623)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"634E4C2700F6"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	320
+			    justify    	0
+			    label      	"用户点击确定"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@114
+			supplier   	@114
+			Focus_Src  	@119
+			Focus_Entry 	@120
+			origin     	(232, 667)
+			terminus   	(382, 667)
+			ordinal    	2)
+		    (object InterMessView "退出请求" @143
+			location   	(0, 806)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @144
+			    Parent_View 	@143
+			    location   	(493, 762)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"634E4C7901B5"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	232
+			    justify    	0
+			    label      	"退出请求"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@114
+			supplier   	@126
+			Focus_Src  	@121
+			Focus_Entry 	@127
+			origin     	(231, 806)
+			terminus   	(756, 806)
+			ordinal    	3)
+		    (object NoteView @145
+			location   	(503, 884)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@145
+			    location   	(365, 824)
+			    fill_color 	13434879
+			    nlines     	2
+			    max_width  	240
+			    justify    	1
+			    label      	"同步请求")
+			line_color 	3342489
+			fill_color 	13434879
+			width      	300
+			height     	132)
+		    (object SelfMessView "清空 cookie" @146
+			location   	(0, 934)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @147
+			    Parent_View 	@146
+			    location   	(863, 890)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"634E4CBA01CB"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	271
+			    justify    	0
+			    label      	"清空 cookie"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@126
+			supplier   	@126
+			Focus_Src  	@128
+			Focus_Entry 	@129
+			origin     	(788, 934)
+			terminus   	(938, 934)
+			ordinal    	4)
+		    (object SelfMessView "销毁session" @148
+			location   	(0, 1109)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @149
+			    Parent_View 	@148
+			    location   	(863, 1065)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"634E4CD402A5"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	279
+			    justify    	0
+			    label      	"销毁session"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@126
+			supplier   	@126
+			Focus_Src  	@130
+			Focus_Entry 	@131
+			origin     	(788, 1109)
+			terminus   	(938, 1109)
+			ordinal    	5)
+		    (object InterMessView "跳转到首页" @150
+			location   	(0, 1541)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @151
+			    Parent_View 	@150
+			    location   	(724, 1641)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"634E4CE30349"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	276
+			    justify    	0
+			    label      	"跳转到首页"
+			    pctDist    	0.062977
+			    height     	100
+			    orientation 	0)
+			line_color 	3342489
+			client     	@126
+			supplier   	@114
+			Focus_Src  	@132
+			Focus_Entry 	@123
+			origin     	(756, 1541)
+			terminus   	(232, 1541)
+			ordinal    	8)
+		    (object SelfMessView "跳转到登录网页" @152
+			location   	(0, 1239)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @153
+			    Parent_View 	@152
+			    location   	(1307, 1195)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"634E4D3C012E"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	363
+			    justify    	0
+			    label      	"跳转到登录网页"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@133
+			supplier   	@133
+			Focus_Src  	@134
+			Focus_Entry 	@135
+			origin     	(1232, 1239)
+			terminus   	(1382, 1239)
+			ordinal    	6)
+		    (object InterMessView "" @154
+			location   	(0, 1436)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @155
+			    Parent_View 	@154
+			    location   	(716, 1392)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"634E4D5B0154"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	450
+			    justify    	0
+			    label      	""
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	1)
+			line_color 	3342489
+			client     	@133
+			supplier   	@114
+			Focus_Src  	@136
+			Focus_Entry 	@122
+			origin     	(1200, 1436)
+			terminus   	(232, 1436)
+			ordinal    	7)
+		    (object SelfMessView "浏览器显示登录页面" @156
+			location   	(0, 1675)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object SegLabel @157
+			    Parent_View 	@156
+			    location   	(307, 1631)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    quidu      	"634E4D6A0309"
+			    anchor_loc 	1
+			    nlines     	1
+			    max_width  	473
+			    justify    	0
+			    label      	"浏览器显示登录页面"
+			    pctDist    	0.500000
+			    height     	45
+			    orientation 	0)
+			line_color 	3342489
+			client     	@114
+			supplier   	@114
+			Focus_Src  	@124
+			Focus_Entry 	@125
+			origin     	(232, 1675)
+			terminus   	(382, 1675)
+			ordinal    	9)))))
     root_subsystem 	(object SubSystem "Component View"
 	quid       	"63490F31000F"
 	physical_models 	(list unit_reference_list)

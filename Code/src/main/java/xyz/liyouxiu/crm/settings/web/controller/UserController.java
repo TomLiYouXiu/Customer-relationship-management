@@ -10,7 +10,9 @@ import xyz.liyouxiu.crm.commons.utils.DateUtils;
 import xyz.liyouxiu.crm.settings.domian.User;
 import xyz.liyouxiu.crm.settings.service.UserService;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,7 +39,7 @@ public class UserController {
     }
 
     @RequestMapping("/settings/qx/user/login.do")
-    public @ResponseBody Object login(String loginAct, String loginPwd, String isRemPwd, HttpServletRequest request, HttpSession session){
+    public @ResponseBody Object login(String loginAct, String loginPwd, String isRemPwd, HttpServletRequest request, HttpServletResponse response, HttpSession session){
         //封装参数
         Map<String,Object> map=new HashMap<>();
         map.put("loginAct",loginAct);
@@ -71,9 +73,41 @@ public class UserController {
                 returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
                 //把user对象保存到session中
                 session.setAttribute(Contants.SESSION_USER,user);
+                //如果需要记住密码，则往外写cookie
+                if("true".equals(isRemPwd)){
+                    Cookie act = new Cookie("loginAct", user.getLoginAct());
+                    act.setMaxAge(10*24*60*60);
+                    response.addCookie(act);
+
+                    Cookie pwd = new Cookie("loginPwd", user.getLoginPwd());
+                    pwd.setMaxAge(10*24*60*60);
+                    response.addCookie(pwd);
+                }else{
+                    //把没有过期的删除Cookie
+                    Cookie act = new Cookie("loginAct","1");
+                    act.setMaxAge(0);
+                    response.addCookie(act);
+
+                    Cookie pwd = new Cookie("loginPwd", "1");
+                    pwd.setMaxAge(0);
+                    response.addCookie(pwd);
+                }
             }
         }
 
         return returnObject;
+    }
+    @RequestMapping("/settings/qx/user/logout.do")
+    public String logout(HttpServletResponse response,HttpSession session){
+        //清空cookice
+        Cookie act = new Cookie("loginAct","1");
+        act.setMaxAge(0);
+        response.addCookie(act);
+        Cookie pwd = new Cookie("loginPwd", "1");
+        pwd.setMaxAge(0);
+        response.addCookie(pwd);
+        //销毁session
+        session.invalidate();
+        return "redirect:/";
     }
 }
