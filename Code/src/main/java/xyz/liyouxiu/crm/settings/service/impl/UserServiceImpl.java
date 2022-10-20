@@ -6,6 +6,7 @@ import xyz.liyouxiu.crm.settings.domian.User;
 import xyz.liyouxiu.crm.settings.mapper.UserMapper;
 import xyz.liyouxiu.crm.settings.service.UserService;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -20,5 +21,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User queryUserByLoginActAndPwd(Map<String, Object> map) {
         return userMapper.selectUserByLoginActAndPwd(map);
+    }
+
+    @Override
+    public List<User> queryAllUser() {
+        return userMapper.selectAllUser();
     }
 }

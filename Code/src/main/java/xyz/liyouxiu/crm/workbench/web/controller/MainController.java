@@ -5,15 +5,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author liyouxiu
- * @date 2022/10/16 16:08
+ * @date 2022/10/20 13:23
  */
 @Controller
-public class WorkbenchindexController {
-    @RequestMapping("/workbench/index.do")
-    public String index(){
-        //跳转到业务主页面
-        return "workbench/index";
+public class MainController {
+    @RequestMapping("/workbench/main/index.do")
+    public String index() {
+        //跳转到main/index
+        return "workbench/main/index";
     }
-
 
 }

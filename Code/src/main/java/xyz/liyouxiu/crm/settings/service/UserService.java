@@ -2,6 +2,7 @@ package xyz.liyouxiu.crm.settings.service;
 
 import xyz.liyouxiu.crm.settings.domian.User;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -10,4 +11,6 @@ import java.util.Map;
  */
 public interface UserService {
     User queryUserByLoginActAndPwd(Map<String,Object> map);
+
+    List<User> queryAllUser();
 }

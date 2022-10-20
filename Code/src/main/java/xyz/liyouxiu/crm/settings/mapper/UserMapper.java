@@ -2,6 +2,7 @@ package xyz.liyouxiu.crm.settings.mapper;
 
 import xyz.liyouxiu.crm.settings.domian.User;
 
+import java.util.List;
 import java.util.Map;
 
 public interface UserMapper {
@@ -59,4 +60,10 @@ public interface UserMapper {
      * @return
      */
     User selectUserByLoginActAndPwd(Map<String,Object> map);
+
+    /**
+     * 查询所有的用户
+     * @return
+     */
+    List<User> selectAllUser();
 }
