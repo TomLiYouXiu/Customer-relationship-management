@@ -6,6 +6,9 @@ import xyz.liyouxiu.crm.workbench.domian.Activity;
 import xyz.liyouxiu.crm.workbench.mapper.ActivityMapper;
 import xyz.liyouxiu.crm.workbench.service.ActivityService;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author liyouxiu
  * @date 2022/10/23 9:56
@@ -17,5 +20,30 @@ public class ActivityServiceImpl implements ActivityService {
     @Override
     public int saveCreateActivity(Activity activity) {
         return activityMapper.insertActivity(activity);
+    }
+
+    @Override
+    public List<Activity> queryActivityByConditionForPage(Map<String, Object> map) {
+        return activityMapper.selectActivityByConditionForPage(map);
+    }
+
+    @Override
+    public int queryCountOfActivityByCondition(Map<String, Object> map) {
+        return activityMapper.selectCountOfActivityByCondition(map);
+    }
+
+    @Override
+    public int deleteActivityByIDs(String[] ids) {
+        return activityMapper.deleteActivityByIDs(ids);
+    }
+
+    @Override
+    public Activity queryActivityById(String id) {
+        return activityMapper.selectActivityById(id);
+    }
+
+    @Override
+    public int saveEditActivity(Activity activity) {
+        return activityMapper.updateActivity(activity);
     }
 }

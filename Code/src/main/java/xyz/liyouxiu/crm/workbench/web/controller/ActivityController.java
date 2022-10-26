@@ -15,9 +15,7 @@ import xyz.liyouxiu.crm.workbench.service.ActivityService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @author liyouxiu
@@ -25,11 +23,12 @@ import java.util.UUID;
  */
 @Controller
 public class ActivityController {
-    @Autowired
-    private UserService userService;
+
 
     @Autowired
     private ActivityService activityService;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/workbench/activity/index.do")
     public String index(HttpServletRequest request) {
@@ -61,6 +60,80 @@ public class ActivityController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return null;
+        return returnObject;
+    }
+    @RequestMapping("/workbench/activity/queryActivityByConditionForPage.do")
+    @ResponseBody
+    public Object queryActivityByConditionForPage(String name,String owner,String startDate,String endDate,
+                                                  int pageNo,int pageSize){
+        //封装参数
+        Map<String,Object> map=new HashMap<String,Object>();
+        map.put("name",name);
+        map.put("owner",owner);
+        map.put("startDate",startDate);
+        map.put("endDate",endDate);
+        map.put("beginNO",(pageNo-1)*pageSize);
+        map.put("pageSize",pageSize);
+
+        //调用service方法查询数据
+        List<Activity> activityList = activityService.queryActivityByConditionForPage(map);
+        int totalRows = activityService.queryCountOfActivityByCondition(map);
+        //根据查询结果，生成响应信息
+        Map<String,Object> retMap=new HashMap<>();
+        retMap.put("activityList",activityList);
+        retMap.put("totalRows",totalRows);
+        return retMap;
+    }
+    @RequestMapping("/workbench/activity/deleteActivityIds.do")
+    @ResponseBody
+    public Object deleteActivityIds(String[] id){
+        ReturnObject returnObject = new ReturnObject();
+       try{
+           //调用service方法删除市场活动
+           int ret = activityService.deleteActivityByIDs(id);
+           if(ret>0){
+               returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+           }else{
+               returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+               returnObject.setMessage("系统忙请稍后~~~~");
+           }
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+
+        return returnObject;
+    }
+
+    @RequestMapping("/workbench/activity/queryActivityById.do")
+    @ResponseBody
+    public Object queryActivityById(String id){
+        //调用service方法，查询市场活动
+        Activity activity=activityService.queryActivityById(id);
+        //根据查询结果，返回响应信息
+        return activity;
+    }
+    @RequestMapping("/workbench/activity/saveEditActivity.do")
+    @ResponseBody
+    public Object saveEditActivity(Activity activity,HttpSession session){
+        //封装参数
+        activity.setEditTime(DateUtils.formatDateTime(new Date()));
+        User user = (User)session.getAttribute(Contants.SESSION_USER);
+        activity.setEditBy(user.getId());
+        ReturnObject returnObject=new ReturnObject();
+       try {
+           //调用service方法保存修改市场活动
+           int ret = activityService.saveEditActivity(activity);
+            if (ret>0){
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_SUCCESS);
+            }else{
+                returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+                returnObject.setMessage("系统忙请稍后~~~~~");
+            }
+       }catch (Exception e){
+           e.printStackTrace();
+           returnObject.setCode(Contants.RETURN_OBJECT_CODE_FAIL);
+           returnObject.setMessage("系统忙请稍后~~~~~");
+       }
+       return returnObject;
     }
 }

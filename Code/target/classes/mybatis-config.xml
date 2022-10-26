@@ -14,5 +14,6 @@
     <!--mapper对应文件-->
     <mappers>
         <package name="xyz.liyouxiu.crm.settings.mapper"/>
+        <package name="xyz.liyouxiu.crm.workbench.mapper"/>
     </mappers>
 </configuration>
