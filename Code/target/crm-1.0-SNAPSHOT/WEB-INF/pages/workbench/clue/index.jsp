@@ -133,15 +133,15 @@
 			});
 
 			// 日历实现：bootstrap的datetimepicker插件（给所有class含有my-date的标签赋予日历功能）
-			// $(".my-date").datetimepicker({
-			// 	language:'zh-CN', // 语言设为中文
-			// 	format:'yyyy-mm-dd', // 日期格式
-			// 	minView:'month', // 可以选择的最小视图
-			// 	initialDate:new Date(), // 初始化显示的日期
-			// 	autoclose:true, // 选择完日期后是否自动关闭
-			// 	todayBtn:true, // 显示‘今天’按钮
-			// 	clearBtn:true // 清空按钮
-			// });
+			$(".my-date").datetimepicker({
+				language:'zh-CN', // 语言设为中文
+				format:'yyyy-mm-dd', // 日期格式
+				minView:'month', // 可以选择的最小视图
+				initialDate:new Date(), // 初始化显示的日期
+				autoclose:true, // 选择完日期后是否自动关闭
+				todayBtn:true, // 显示‘今天’按钮
+				clearBtn:true // 清空按钮
+			});
 
 			// 给全选按钮添加事件实现全选（全选按钮在线索数据被查出来之前已经生成了，所以直接给固有元素全选按钮添加事件即可）
 			// $("#checkAll").click(function () {
@@ -356,78 +356,78 @@
 		 * @param pageNo 起始页码
 		 * @param pageSize 单页显示数据条数
 		 */
-		// function queryClueByConditionForPage(pageNo, pageSize) {
-		// 	// 收集线索前端界面的相关参数（条件查询的一些信息，如果不需要条件查询，就默认null）
-		// 	var fullname = $("#query-name").val();
-		// 	var company = $("#query-company").val();
-		// 	var phone = $("#query-phone").val();
-		// 	var source = $("#query-source option:selected").text(); // 获取下拉框选中的线索来源
-		// 	var owner = $("#query-owner").val();
-		// 	var mphone = $("#query-mphone").val();
-		// 	var state = $("#query-state option:selected").text(); // 获取下拉框选中的线索状态
-		// 	// 前端向后端发送请求
-		// 	$.ajax({
-		// 		url: 'workbench/clue/queryClueByConditionForPage.do',
-		// 		data: {
-		// 			fullname:fullname,
-		// 			company:company,
-		// 			phone:phone,
-		// 			source:source,
-		// 			owner:owner,
-		// 			mphone:mphone,
-		// 			state:state,
-		// 			pageNo:pageNo,
-		// 			pageSize:pageSize
-		// 		},
-		// 		type:'post',
-		// 		dataType:'json',
-		// 		success:function (data) {
-		// 			// 显示所有线索，遍历clueList，拼接所有行
-		// 			var htmlString = "";
-		// 			$.each(data.clueList, function (index, obj) {
-		// 				// checkbox中value存放了线索的id属性，用于删除和修改的调用
-		// 				htmlString += "<tr class=\"active\">";
-		// 				htmlString += "<td><input type=\"checkbox\" value=\""+obj.id+"\"/></td>";
-		// 				htmlString += "<td><a style=\"text-decoration: none; cursor: pointer;\" onclick=\"window.location.href='workbench/clue/detailClue.do?id="+obj.id+"'\">"+obj.fullname+""+obj.appellation+"</a></td>";
-		// 				htmlString += "<td>"+obj.company+"</td>";
-		// 				htmlString += "<td>"+obj.phone+"</td>";
-		// 				htmlString += "<td>"+obj.mphone+"</td>";
-		// 				htmlString += "<td>"+obj.source+"</td>";
-		// 				htmlString += "<td>"+obj.owner+"</td>";
-		// 				htmlString += "<td>"+obj.state+"</td>";
-		// 				htmlString += "</tr>";
-		// 			});
-		// 			$("#tBody").html(htmlString); // 写入页面
-		// 			$("#checkAll").prop("checked", false); // 换页时将全选按钮取消选中
-		// 			//计算总页数
-		// 			var totalPages = 1;
-		// 			if (data.totalRows % pageSize == 0) { // 总数据刚好可以整除页面
-		// 				totalPages = data.totalRows / pageSize;
-		// 			} else {
-		// 				totalPages = parseInt(data.totalRows / pageSize) + 1; // 页数不能是小数，将小数转换为整数
-		// 			}
-		//
-		// 			//对容器调用bs_pagination工具函数，显示翻页信息
-		// 			$("#page-master").bs_pagination({
-		// 				currentPage: pageNo, // 当前页号,相当于pageNo
-		// 				rowsPerPage: pageSize, // 每页显示条数,相当于pageSize
-		// 				totalRows: data.totalRows, // 总条数
-		// 				totalPages: totalPages,  // 总页数,必填参数.
-		// 				visiblePageLinks: 5, // 最多可以显示的卡片数
-		// 				showGoToPage: true, // 是否显示"跳转到"部分，默认true显示
-		// 				showRowsPerPage: true, // 是否显示"每页显示条数"部分，默认true显示
-		// 				showRowsInfo: true, // 是否显示记录的信息，默认true显示
-		//
-		// 				// 用户每次切换页号，都自动触发本函数;
-		// 				// 每次返回切换页号之后的pageNo和pageSize
-		// 				onChangePage: function (event, pageObj) { // returns page_num and rows_per_page after a link has clicked
-		// 					// 重写发送当前页数和每页显示的条数（这也就意味着每次换页都将向后端 发送请求 查询当页数据）
-		// 					queryClueByConditionForPage(pageObj.currentPage, pageObj.rowsPerPage);
-		// 				}
-		// 			});
-		// 		}
-		// 	});
-		// }
+		function queryClueByConditionForPage(pageNo, pageSize) {
+			// 收集线索前端界面的相关参数（条件查询的一些信息，如果不需要条件查询，就默认null）
+			var fullname = $("#query-name").val();
+			var company = $("#query-company").val();
+			var phone = $("#query-phone").val();
+			var source = $("#query-source option:selected").text(); // 获取下拉框选中的线索来源
+			var owner = $("#query-owner").val();
+			var mphone = $("#query-mphone").val();
+			var state = $("#query-state option:selected").text(); // 获取下拉框选中的线索状态
+			// 前端向后端发送请求
+			$.ajax({
+				url: 'workbench/clue/queryClueByConditionForPage.do',
+				data: {
+					fullname:fullname,
+					company:company,
+					phone:phone,
+					source:source,
+					owner:owner,
+					mphone:mphone,
+					state:state,
+					pageNo:pageNo,
+					pageSize:pageSize
+				},
+				type:'post',
+				dataType:'json',
+				success:function (data) {
+					// 显示所有线索，遍历clueList，拼接所有行
+					var htmlString = "";
+					$.each(data.clueList, function (index, obj) {
+						// checkbox中value存放了线索的id属性，用于删除和修改的调用
+						htmlString += "<tr class=\"active\">";
+						htmlString += "<td><input type=\"checkbox\" value=\""+obj.id+"\"/></td>";
+						htmlString += "<td><a style=\"text-decoration: none; cursor: pointer;\" onclick=\"window.location.href='workbench/clue/detailClue.do?id="+obj.id+"'\">"+obj.fullname+""+obj.appellation+"</a></td>";
+						htmlString += "<td>"+obj.company+"</td>";
+						htmlString += "<td>"+obj.phone+"</td>";
+						htmlString += "<td>"+obj.mphone+"</td>";
+						htmlString += "<td>"+obj.source+"</td>";
+						htmlString += "<td>"+obj.owner+"</td>";
+						htmlString += "<td>"+obj.state+"</td>";
+						htmlString += "</tr>";
+					});
+					$("#tBody").html(htmlString); // 写入页面
+					$("#checkAll").prop("checked", false); // 换页时将全选按钮取消选中
+					//计算总页数
+					var totalPages = 1;
+					if (data.totalRows % pageSize == 0) { // 总数据刚好可以整除页面
+						totalPages = data.totalRows / pageSize;
+					} else {
+						totalPages = parseInt(data.totalRows / pageSize) + 1; // 页数不能是小数，将小数转换为整数
+					}
+
+					//对容器调用bs_pagination工具函数，显示翻页信息
+					$("#page-master").bs_pagination({
+						currentPage: pageNo, // 当前页号,相当于pageNo
+						rowsPerPage: pageSize, // 每页显示条数,相当于pageSize
+						totalRows: data.totalRows, // 总条数
+						totalPages: totalPages,  // 总页数,必填参数.
+						visiblePageLinks: 5, // 最多可以显示的卡片数
+						showGoToPage: true, // 是否显示"跳转到"部分，默认true显示
+						showRowsPerPage: true, // 是否显示"每页显示条数"部分，默认true显示
+						showRowsInfo: true, // 是否显示记录的信息，默认true显示
+
+						// 用户每次切换页号，都自动触发本函数;
+						// 每次返回切换页号之后的pageNo和pageSize
+						onChangePage: function (event, pageObj) { // returns page_num and rows_per_page after a link has clicked
+							// 重写发送当前页数和每页显示的条数（这也就意味着每次换页都将向后端 发送请求 查询当页数据）
+							queryClueByConditionForPage(pageObj.currentPage, pageObj.rowsPerPage);
+						}
+					});
+				}
+			});
+		}
 
 	</script>
 </head>

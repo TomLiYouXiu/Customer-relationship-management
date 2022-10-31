@@ -67,8 +67,8 @@ public class ClueController {
     }
 
     //分页显示并在前台显示数据
-    @RequestMapping("/workbench/clue/queryClueByConditionForPage.do")
-    public Object queryClueByConditionForPage(){
-
-    }
+//    @RequestMapping("/workbench/clue/queryClueByConditionForPage.do")
+//    public Object queryClueByConditionForPage(){
+//
+//    }
 }

@@ -308,4 +308,11 @@
     #{description,jdbcType=VARCHAR}, #{contactSummary,jdbcType=VARCHAR}, #{nextContactTime,jdbcType=CHAR},
     #{address,jdbcType=VARCHAR})
   </insert>
+
+<!--List<Clue> selectClueByConditionForPage(Map<String, Object> map);-->
+  <select id="selectClueByConditionForPage" parameterType="map" resultMap="BaseResultMap">
+    select c.name,
+    from tbl_clue c
+
+  </select>
 </mapper>
