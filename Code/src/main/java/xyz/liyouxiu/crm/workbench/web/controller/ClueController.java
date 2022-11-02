@@ -8,7 +8,9 @@ import xyz.liyouxiu.crm.commons.contants.Contants;
 import xyz.liyouxiu.crm.commons.domain.ReturnObject;
 import xyz.liyouxiu.crm.commons.utils.DateUtils;
 import xyz.liyouxiu.crm.commons.utils.UUIDUtils;
+import xyz.liyouxiu.crm.settings.domian.DicValue;
 import xyz.liyouxiu.crm.settings.domian.User;
+import xyz.liyouxiu.crm.settings.service.DicValueService;
 import xyz.liyouxiu.crm.settings.service.UserService;
 import xyz.liyouxiu.crm.workbench.domian.Activity;
 import xyz.liyouxiu.crm.workbench.domian.Clue;
@@ -29,14 +31,24 @@ public class ClueController {
     ClueService clueService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private DicValueService dicValueService;
+
     //跳转到线索主页面
     @RequestMapping("/workbench/clue/index.do")
     public String index(HttpServletRequest request) {
         //下拉页面里的创建者
         //调用service方法
         List<User> userList = userService.queryAllUser();
+        List<DicValue> appellationList = dicValueService.queryDicValueByTypeCode("appellation");
+        List<DicValue> clueStateList = dicValueService.queryDicValueByTypeCode("clueState");
+        List<DicValue> sourceList = dicValueService.queryDicValueByTypeCode("source");
         //将数据保存到request
         request.setAttribute("userList",userList);
+        request.setAttribute("appellationList",appellationList);
+        request.setAttribute("clueStateList",clueStateList);
+        request.setAttribute("sourceList",sourceList);
+
         return "workbench/clue/index";
     }
 
