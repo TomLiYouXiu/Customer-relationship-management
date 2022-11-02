@@ -11,4 +11,6 @@ import xyz.liyouxiu.crm.workbench.domian.Clue;
 public interface ClueService {
     //创建线索
     int saveCreateClue(Clue Clue);
+
+    Clue queryClueForDetailById(String id);
 }

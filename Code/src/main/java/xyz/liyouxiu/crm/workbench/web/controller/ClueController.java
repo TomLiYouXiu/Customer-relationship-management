@@ -14,6 +14,9 @@ import xyz.liyouxiu.crm.settings.service.DicValueService;
 import xyz.liyouxiu.crm.settings.service.UserService;
 import xyz.liyouxiu.crm.workbench.domian.Activity;
 import xyz.liyouxiu.crm.workbench.domian.Clue;
+import xyz.liyouxiu.crm.workbench.domian.ClueRemark;
+import xyz.liyouxiu.crm.workbench.service.ActivityService;
+import xyz.liyouxiu.crm.workbench.service.ClueRemarkService;
 import xyz.liyouxiu.crm.workbench.service.ClueService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,11 +31,15 @@ import java.util.List;
 @Controller
 public class ClueController {
     @Autowired
-    ClueService clueService;
+    private ClueService clueService;
     @Autowired
     private UserService userService;
     @Autowired
     private DicValueService dicValueService;
+    @Autowired
+    private ClueRemarkService clueRemarkService;
+    @Autowired
+    private ActivityService activityService;
 
     //跳转到线索主页面
     @RequestMapping("/workbench/clue/index.do")
@@ -76,6 +83,22 @@ public class ClueController {
             returnObject.setMessage("系统忙，请稍后重试~~~~~");
         }
         return returnObject;
+    }
+
+    @RequestMapping("/workbench/clue/detailClue.do")
+    public String detailClue(String clueId,HttpServletRequest request) {
+        //调用service层方法，查询数据
+        Clue clue = clueService.queryClueForDetailById(clueId);
+        List<ClueRemark> remarkList = clueRemarkService.queryClueRemarkForDetailByClueId(clueId);
+        List<Activity> activityList = activityService.queryActivityForDetailByClueId(clueId);
+
+        //把数据保存到request中
+        request.setAttribute("clue",clue);
+        request.setAttribute("remarkList",remarkList);
+        request.setAttribute("activityList",activityList);
+        System.out.println(clue);
+        //请求转发
+        return "workbench/clue/detail";
     }
 
     //分页显示并在前台显示数据

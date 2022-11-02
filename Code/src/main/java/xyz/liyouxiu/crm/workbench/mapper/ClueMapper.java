@@ -63,9 +63,19 @@ public interface ClueMapper {
     int insertClue(Clue Clue);
 
     /**
+     * 根据id查询线索的明细信息
+     * @param id
+     * @return
+     */
+    Clue selectClueForDetailById(String id);
+
+
+    /**
      * 根据条件查询线索的总条数
      * @param map
      * @return
      */
     List<Clue> selectClueByConditionForPage(Map<String, Object> map);
+
+
 }

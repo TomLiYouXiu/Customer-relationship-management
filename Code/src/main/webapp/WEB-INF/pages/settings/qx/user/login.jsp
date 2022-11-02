@@ -77,6 +77,7 @@
 	<div style="position: absolute; top: 0px; right: 60px;">
 		<div class="page-header">
 			<h1>登录</h1>
+			<p>账号：ls 密码：root 注意：请不要随意更改数据！！！</p>
 		</div>
 		<form action="workbench/index.html" class="form-horizontal" role="form">
 			<div class="form-group form-group-lg">
